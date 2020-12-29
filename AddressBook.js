@@ -102,16 +102,16 @@
     let addressBookArray = new Array();
     try{
         addressBookArray.push(
-            new AddressBookContacts("Alex", "Rexbell", "1st-cross", "Mumbai", "maharashtra", 400076, "91 9894118421", "alex@abc.com")
+            new AddressBookContacts("Alex", "Rexbell", "1st-cross", "Mumbai", "Maharashtra", 400076, "91 9894118421", "alex@abc.com")
         );
         addressBookArray.push(
-            new AddressBookContacts("Tommy", "Catty", "2nd-cross", "bangalore", "karnataka", 123456, "91 9988776654", "tommy@abc.com")
+            new AddressBookContacts("Tommy", "Catty", "2nd-cross", "Bangalore", "Karnataka", 123456, "91 9988776654", "tommy@abc.com")
         );
         addressBookArray.push(
-            new AddressBookContacts("Murali", "Hello", "3rd-cross", "chennai", "tamilnadu", 620019, "91 9597231495", "murali@abc.com")
+            new AddressBookContacts("Murali", "Hello", "3rd-cross", "Chennai", "Tamilnadu", 620019, "91 9597231495", "murali@abc.com")
         );
         addressBookArray.push(
-            new AddressBookContacts("Priya", "Shankar", "4th-cross", "mumbai", "maharashtra", 456789, "91 9876543212", "priya@abc.com")
+            new AddressBookContacts("Priya", "Shankar", "4th-cross", "Mumbai", "Maharashtra", 456789, "91 9876543212", "priya@abc.com")
         );
     }catch(e){
         console.error(e);
@@ -193,4 +193,27 @@
         addressBookArray.push(addContact);
     }
     console.log(addressBookArray);
+
+    //UC8 - Search contact by city or state
+    console.log("UC8 - Search contact details by city or state from addressBook");
+    function searchByCityOrState(attribute, value, addressBookName){
+        let newAddressArray;
+        switch(attribute){
+            case "city":
+                newAddressArray = addressBookArray.filter(
+                    (contact) => contact.city == value
+                );
+                break;
+            case "state":
+                newAddressArray = addressBookArray.filter(
+                    (contact) => contact.state == value
+                );
+                break;
+        }
+        return newAddressArray;
+    }
+    let searchContact = searchByCityOrState("city", "Mumbai", addressBookArray);
+    searchContact.forEach((cityCheck) => console.log(cityCheck.firstname + " "+ cityCheck.lastname));
+    searchContact = searchByCityOrState("state", "Tamilnadu", addressBookArray);
+    searchContact.forEach((stateCheck) => console.log(stateCheck.firstname+" "+stateCheck.lastname));    
 }
