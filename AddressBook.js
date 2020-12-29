@@ -226,8 +226,8 @@
     }
     countByCityOrState("state", "Tamilnadu", addressBookArray);
 
-    //UC11 - sort contacts details by Firstname
-    console.log("UC11 - Sort contact details by firstname");
+    //UC11 and UC12- sort contacts details by Attributes
+    console.log("UC11 and UC12 - Sort contact details by Attributes");
     function sortContactsByAttributes(attribute){
         switch(attribute){
             case "firstname":
@@ -243,8 +243,61 @@
                     }
                     return 0;
                 });
+                console.log("Sorting contact details by firstname");
                 addressBookArray.forEach(ax => console.log(ax.toString()));
+                break;
+            case "city":
+                addressBookArray.sort((a,b) => {
+                    let firstContact = a.city.toLowerCase();
+                    let secondContact = b.city.toLowerCase();
+
+                    if(firstContact < secondContact){
+                        return -1;
+                    }
+                    if(firstContact > secondContact){
+                        return 1;
+                    }
+                    return 0;
+                });
+                console.log("Sorting contact details by city");
+                addressBookArray.forEach(ax => console.log(ax.toString()));
+                break;
+            case "state":
+                addressBookArray.sort((a,b) => {
+                    let firstContact = a.state.toLowerCase();
+                    let secondContact = b.state.toLowerCase();
+
+                    if(firstContact < secondContact){
+                        return -1;
+                    }
+                    if(firstContact > secondContact){
+                        return 1;
+                    }
+                    return 0;
+                });
+                console.log("Sorting contact details by state");
+                addressBookArray.forEach(ax => console.log(ax.toString()));
+                break;
+            case "zip":
+                addressBookArray.sort((a,b) => {
+                    let firstContact = a.zip;
+                    let secondContact = b.zip;
+
+                    if(firstContact < secondContact){
+                        return -1;
+                    }
+                    if(firstContact > secondContact){
+                        return 1;
+                    }
+                    return 0;
+                });
+                console.log("Sorting contact details by zip code");
+                addressBookArray.forEach(ax => console.log(ax.toString()));
+                break;
         }
     }
     sortContactsByAttributes("firstname");
+    sortContactsByAttributes("city");
+    sortContactsByAttributes("state");
+    sortContactsByAttributes("zip");
 }
