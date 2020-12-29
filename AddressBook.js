@@ -194,8 +194,8 @@
     }
     console.log(addressBookArray);
 
-    //UC8 - Search contact by city or state
-    console.log("UC8 - Search contact details by city or state from addressBook");
+    //UC8 and UC9 - Search and View contact by city or state from addressBook
+    console.log("UC8 - Search and view contact details by city or state from addressBook");
     function searchByCityOrState(attribute, value, addressBookName){
         let newAddressArray;
         switch(attribute){
