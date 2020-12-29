@@ -215,5 +215,14 @@
     let searchContact = searchByCityOrState("city", "Mumbai", addressBookArray);
     searchContact.forEach((cityCheck) => console.log(cityCheck.firstname + " "+ cityCheck.lastname));
     searchContact = searchByCityOrState("state", "Tamilnadu", addressBookArray);
-    searchContact.forEach((stateCheck) => console.log(stateCheck.firstname+" "+stateCheck.lastname));    
+    searchContact.forEach((stateCheck) => console.log(stateCheck.firstname+" "+stateCheck.lastname));
+    
+    //UC10 - count contacts by city or state from addressBook
+    console.log("UC10 - Count contact details from addressBook by city or state");
+    function countByCityOrState(attribute, value, addressBookName){
+        let getContact = searchByCityOrState(attribute, value, addressBookName);
+        let getCount = getContact.reduce((count) => count += 1, 0);
+        console.log("Number of contacts in "+value+" are: "+getCount);
+    }
+    countByCityOrState("state", "Tamilnadu", addressBookArray);
 }
