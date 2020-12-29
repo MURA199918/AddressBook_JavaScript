@@ -72,7 +72,7 @@
 
         get phone(){ return this._phone; }
         set phone(phone){
-            let phoneRegex = RegExp('[91 ]{3}[789]{1}\\d{9}');
+            let phoneRegex = RegExp('^[0-9]{2} [0-9]{10}$');
             if(phoneRegex.test(phone)){
                 this._phone = phone;
             }else{
@@ -82,7 +82,7 @@
 
         get email(){ return this._email; }
         set email(email){
-            let emailRegex = RegExp('^[a-zA-Z]+([._+-]{0,1}[a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}+(?:\\.[a-z]{2,}){0,1}$');
+            let emailRegex = RegExp( "^[a-zA-Z0-9]+[_+-.]?[a-zA-Z0-9]*[a-zA-Z0-9]@[a-zA-Z0-9]+([.][a-zA-Z]{2,4})([.][a-zA-Z]{2,4})?$");
             if(emailRegex.test(email)){
                 this._email = email;
             }else{
@@ -98,10 +98,22 @@
     }
 
     console.log(".......................Welcome to AddressBook Program!!!!.......................");
+    let addressBookArray = new Array();
     try{
-        let addressBookData = new AddressBookContacts("Alex", "Mark", "1st-cross", "Mumbai", "Maharashtra", 400076, 998866, "alex@abc.com");
-        console.log(addressBookData.toString());
+        addressBookArray.push(
+            new AddressBookContacts("Alex", "Rexbell", "1st-cross", "Mumbai", "maharashtra", 400076, "91 9894118421", "alex@abc.com")
+        );
+        addressBookArray.push(
+            new AddressBookContacts("Tommy", "Catty", "2nd-cross", "bangalore", "karnataka", 123456, "91 9988776654", "tommy@abc.com")
+        );
+        addressBookArray.push(
+            new AddressBookContacts("Murali", "Hello", "3rd-cross", "chennai", "tamilnadu", 620019, "91 9597231495", "murali@abc.com")
+        );
+        addressBookArray.push(
+            new AddressBookContacts("Priya", "Shankar", "4th-cross", "mumbai", "maharashtra", 456789, "91 9876543212", "priya@abc.com")
+        );
     }catch(e){
         console.error(e);
     }
+    console.log(addressBookArray.toString());
 }
