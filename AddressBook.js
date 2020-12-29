@@ -98,6 +98,7 @@
     }
 
     console.log(".......................Welcome to AddressBook Program!!!!.......................");
+    console.log("UC2 - Adding contact details in addressBook Array");
     let addressBookArray = new Array();
     try{
         addressBookArray.push(
@@ -116,4 +117,54 @@
         console.error(e);
     }
     console.log(addressBookArray.toString());
+
+    //UC3 Find contact and edit details
+    console.log("UC3 - Find contact and edit details");
+    function findContact(firstName){
+        let contactObject;
+        addressBookArray.forEach((c) => {
+            if(c.firstname == firstName){
+                contactObject = c;
+            }
+        });
+        return contactObject;
+    }
+
+    function editContactDetails(contact, editedValue, attribute){
+        try {
+            switch (attribute) {
+              case "firstname":
+                contact.firstName = editedValue;
+                break;
+              case "lastname":
+                contact.lastname = editedValue;
+                break;
+              case "address":
+                contact.address = editedValue;
+                break;
+              case "city":
+                contact.city = editedValue;
+                break;
+              case "state":
+                contact.state = editedValue;
+                break;
+              case "zip":
+                contact.zip = editedValue;
+                break;
+              case "phone":
+                contact.phone = editedValue;
+                break;
+              case "email":
+                contact.email = editedValue;
+                break;
+              default:
+                break;
+            }
+        }catch(e){
+            console.error("Editing contacts details cannot be done");
+        }
+    }
+    let newContact = findContact("Murali");
+    editContactDetails(newContact, "Karthick", "lastname");
+    console.log(newContact.toString());
 }
