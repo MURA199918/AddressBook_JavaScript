@@ -167,4 +167,14 @@
     let newContact = findContact("Murali");
     editContactDetails(newContact, "Karthick", "lastname");
     console.log(newContact.toString());
+
+    //UC5 - find Contact and delete
+    console.log("UC5 - Find contact and edit details");
+    function deleteContact(firstName) {
+        let contact = findContact(firstName);
+        addressBookArray.splice(addressBookArray.indexOf(contact), 1);
+    }
+      
+    deleteContact("Tommy");
+    console.log(addressBookArray);
 }
