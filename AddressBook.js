@@ -182,4 +182,15 @@
     console.log("UC6 - Count entries from addressBook");
     let countEntries = addressBookArray.reduce((count) => count += 1, 0);
     console.log(countEntries);
+
+    //UC7 - check for duplicate entries in addressBook
+    console.log("UC7 - Check for duplicate entries in addressBook");
+    let addContact = new AddressBookContacts("Murali", "Bill", "nth-cross", "London", "United Kingdom", 620019, "91 9894118421", "murali@abc.com");
+    let checkDuplicate = addressBookArray.find(check => check.firstname == addContact.firstname);
+    if(checkDuplicate != null){
+        console.log("New contact cannot be added since it is a duplicate entry");
+    }else{
+        addressBookArray.push(addContact);
+    }
+    console.log(addressBookArray);
 }
