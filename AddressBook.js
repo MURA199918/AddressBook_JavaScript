@@ -177,4 +177,9 @@
       
     deleteContact("Tommy");
     console.log(addressBookArray);
+
+    //UC6 - count entries from addressBook
+    console.log("UC6 - Count entries from addressBook");
+    let countEntries = addressBookArray.reduce((count) => count += 1, 0);
+    console.log(countEntries);
 }
