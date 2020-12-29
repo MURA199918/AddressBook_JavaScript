@@ -225,4 +225,26 @@
         console.log("Number of contacts in "+value+" are: "+getCount);
     }
     countByCityOrState("state", "Tamilnadu", addressBookArray);
+
+    //UC11 - sort contacts details by Firstname
+    console.log("UC11 - Sort contact details by firstname");
+    function sortContactsByAttributes(attribute){
+        switch(attribute){
+            case "firstname":
+                addressBookArray.sort((a,b) => {
+                    let firstContact = a.firstname.toLowerCase();
+                    let secondContact = b.firstname.toLowerCase();
+
+                    if(firstContact < secondContact){
+                        return -1;
+                    }
+                    if(firstContact > secondContact){
+                        return 1;
+                    }
+                    return 0;
+                });
+                addressBookArray.forEach(ax => console.log(ax.toString()));
+        }
+    }
+    sortContactsByAttributes("firstname");
 }
